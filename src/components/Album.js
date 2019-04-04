@@ -10,38 +10,43 @@ class Album extends Component {
       return album.slug === this.props.match.params.slug
     });
 
+    const songNumber = album;
+    for (let i = 0; i < songNumber.length; i++) {
+      return [i + 1];
+    }
+
     this.state = {
-      album: album
+      album: album,
     };
   }
 
   render() {
     return (
       <section className="album">
-        <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
-          <div className="album-details">
-            <h1 id="album-title">{this.state.album.title}</h1>
-            <h2 className="artist">{this.state.album.artist}</h2>
-            <div id="release-info">{this.state.album.releaseInfo}</div>
-          </div>
-        </section>
-        <table id="songs-list">
-          <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column" />
-            <col id="song-duration-column" />
-          </colgroup>
-          <tbody>
-          {
-            this.state.album.songs.map(( album, index1) =>
-              <tr key={index1}>
-                <td>{album.i}</td>
-                <td>{album.title}</td>
-                <td>{album.duration}</td>
-              </tr>
-            )
-          }
+              <section id="album-info">
+                <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title} />
+                <div className="album-details">
+                  <h1 id="album-title">{this.state.album.title}</h1>
+                  <h2 className="artist">{this.state.album.artist}</h2>
+                  <div id="release-info">{this.state.album.releaseInfo}</div>
+                </div>
+              </section>
+              <table id="songs-list">
+                <colgroup>
+                  <col id="song-number-column" />
+                  <col id="song-title-column" />
+                  <col id="song-duration-column" />
+                </colgroup>
+                <tbody>
+                {
+                  this.state.album.songs.map(( album, songList) =>
+                    <tr key={songList}>
+                      <td>{album.number}</td>
+                      <td>{album.title}</td>
+                      <td>{album.duration} seconds</td>
+                    </tr>
+                  )
+                }
           </tbody>
         </table>
       </section>
