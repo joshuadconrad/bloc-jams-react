@@ -10,11 +10,6 @@ class Album extends Component {
       return album.slug === this.props.match.params.slug
     });
 
-    const songNumber = album;
-    for (let i = 0; i < songNumber.length; i++) {
-      return [i + 1];
-    }
-
     this.state = {
       album: album,
     };
@@ -39,11 +34,11 @@ class Album extends Component {
                 </colgroup>
                 <tbody>
                 {
-                  this.state.album.songs.map(( album, songList) =>
-                    <tr key={songList}>
-                      <td>{album.number}</td>
-                      <td>{album.title}</td>
-                      <td>{album.duration} seconds</td>
+                  this.state.album.songs.map(( song, index) =>
+                    <tr key={index}>
+                      <td>{index+1}</td>
+                      <td>{song.title}</td>
+                      <td>{song.duration} seconds</td>
                     </tr>
                   )
                 }
