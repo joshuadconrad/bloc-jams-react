@@ -14,7 +14,7 @@ class Album extends Component {
       album: album,
     };
   }
-
+  
   render() {
     return (
       <section className="album">
