@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import './Album.css';
 
 
 class Album extends Component {
@@ -13,7 +14,8 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHovered: false
     };
 
     this.audioElement = document.createElement('audio');
@@ -65,8 +67,8 @@ class Album extends Component {
                 <tbody>
                 {
                   this.state.album.songs.map(( song, index) =>
-                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } >
-                      <td>{index+1}</td>
+                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } /*onMouseOver={ () => this.handleMouseOver(song) }*/>
+                      <td><span className="icon ion-ios-play"></span><span className="index">{index+1}</span></td>
                       <td>{song.title}</td>
                       <td>{song.duration} seconds</td>
                     </tr>
