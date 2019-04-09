@@ -46,6 +46,26 @@ class Album extends Component {
     }
   }
 
+  showTrackOrButton(song, index) {
+    const playing = this.state.isPlaying && this.state.currentSong === song;
+    const paused = !this.state.isPlaying && this.state.currentSong === song;
+    const hovering = this.state.isPlaying && !this.state.currentSong === song;
+    if(playing){
+      return (
+        <span className="icon ion-ios-pause"></span>
+      );
+    }
+      if(paused){
+        return (
+          <span className="icon ion-ios-play is-playing"></span>
+        );
+    }  else{
+      if(index){
+      return <span class="number"><i class="icon-ios-play"></i>{index+1}</span>;
+    }
+  }
+  }
+
   render() {
     return (
       <section className="album">
@@ -67,12 +87,7 @@ class Album extends Component {
                 {
                   this.state.album.songs.map(( song, index) =>
                     <tr className="song" key={index} onClick={ () => this.handleSongClick(song) }>
-                        <td>
-
-                          <span className={this.state.isPlaying && this.state.currentSong === song ? "ion-ios-pause" : "ion-ios-play"}></span>
-                          <span className={this.state.isPlaying && this.state.currentSong === song ? "number-is-playing" : "number"}>{index+1}</span>
-
-                        </td>
+                      <td>{this.showTrackOrButton(song, index)}</td>
                       <td>{song.title}</td>
                       <td>{song.duration} seconds</td>
                     </tr>

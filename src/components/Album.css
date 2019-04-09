@@ -7,12 +7,20 @@ tr.song:hover span.ion-ios-play {
   display: block;
 }
 
+tr.song span.number i.ion-ios-play{
+  display: none;
+}
+
+tr.song:hover span.number i.ion-ios-play {
+  display: block;
+}
+
 tr.song span.is-playing {
-  display: block!important;
+  display: block;
 }
 
 tr.song:hover span.is-playing {
-  display: none!important;
+  display: none;
 }
 
 tr.song span.ion-ios-pause {
@@ -28,5 +36,8 @@ tr.song:hover span.number {
 }
 
 tr.song span.number-is-playing {
+  display: none!important;
+}
+tr.song span.number-is-paused {
   display: none!important;
 }
