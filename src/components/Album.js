@@ -14,7 +14,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
-      isHovering: false
+      hoveredSong: album.songs[0]
     };
 
     this.audioElement = document.createElement('audio');
@@ -46,12 +46,12 @@ class Album extends Component {
     }
   }
 
-  setHover(song, index) {
-    this.setState({ isHovering: true });
+  setHover(song) {
+    this.setState({ hoveredSong: song });
   }
 
   unsetHover(song) {
-    this.setState({ isHovering: false });
+    this.setState({ hoveredSong: null });
   }
 
   showTrackOrButton(song, index) {
@@ -65,7 +65,7 @@ class Album extends Component {
           <span className="icon ion-ios-play"></span>
         );
     }
-      if(this.state.isHovering){
+      if(this.state.hoveredSong === song){
         return(
           <span className="icon ion-ios-play"></span>
         );
@@ -96,7 +96,7 @@ class Album extends Component {
                 <tbody>
                 {
                   this.state.album.songs.map(( song, index) =>
-                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } onMouseEnter= { () => this.setHover() } onMouseLeave={ () => this.unsetHover() }>
+                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } onMouseEnter= { () => this.setHover(song) } onMouseLeave={ () => this.unsetHover(song) }>
                       <td>{this.showTrackOrButton(song, index)}</td>
                       <td>{song.title}</td>
                       <td>{song.duration} seconds</td>
