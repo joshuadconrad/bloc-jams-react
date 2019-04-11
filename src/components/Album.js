@@ -14,7 +14,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
-      hoveredSong: album.songs[0]
+      hoveredSong: null
     };
 
     this.audioElement = document.createElement('audio');
@@ -70,7 +70,7 @@ class Album extends Component {
           <span className="icon ion-ios-play"></span>
         );
       } else{
-      if(index){
+      if(song){
       return <span>{index+1}</span>;
     }
   }
