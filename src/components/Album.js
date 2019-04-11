@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
-import './Album.css';
 
 
 class Album extends Component {
@@ -15,6 +14,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
+      isHovering: false
     };
 
     this.audioElement = document.createElement('audio');
@@ -46,22 +46,32 @@ class Album extends Component {
     }
   }
 
+  setHover(song, index) {
+    this.setState({ isHovering: true });
+  }
+
+  unsetHover(song) {
+    this.setState({ isHovering: false });
+  }
+
   showTrackOrButton(song, index) {
-    const playing = this.state.isPlaying && this.state.currentSong === song;
-    const paused = !this.state.isPlaying && this.state.currentSong === song;
-    const hovering = this.state.isPlaying && !this.state.currentSong === song;
-    if(playing){
+    if(this.state.isPlaying && this.state.currentSong === song){
       return (
         <span className="icon ion-ios-pause"></span>
       );
     }
-      if(paused){
+      if(!this.state.isPlaying && this.state.currentSong === song){
         return (
-          <span className="icon ion-ios-play is-playing"></span>
+          <span className="icon ion-ios-play"></span>
         );
-    }  else{
+    }
+      if(this.state.isHovering){
+        return(
+          <span className="icon ion-ios-play"></span>
+        );
+      } else{
       if(index){
-      return <span class="number"><i class="icon-ios-play"></i>{index+1}</span>;
+      return <span>{index+1}</span>;
     }
   }
   }
@@ -86,7 +96,7 @@ class Album extends Component {
                 <tbody>
                 {
                   this.state.album.songs.map(( song, index) =>
-                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) }>
+                    <tr className="song" key={index} onClick={ () => this.handleSongClick(song) } onMouseEnter= { () => this.setHover() } onMouseLeave={ () => this.unsetHover() }>
                       <td>{this.showTrackOrButton(song, index)}</td>
                       <td>{song.title}</td>
                       <td>{song.duration} seconds</td>
