@@ -19,7 +19,7 @@ class Album extends Component {
       duration: album.songs[0].duration,
       isPlaying: false,
       hoveredSong: null,
-      volume: 0.2
+      volume: "0.5"
     };
 
     this.audioElement = document.createElement('audio');
@@ -147,7 +147,7 @@ class Album extends Component {
  }
 
  handleVolumeChange(e) {
-   const newVolume = e.target.value;
+   const newVolume =  e.target.value;
    this.audioElement.volume = newVolume;
    this.setState({ volume: newVolume });
  }
@@ -187,7 +187,7 @@ class Album extends Component {
         currentSong={this.state.currentSong}
         currentTime={this.audioElement.currentTime}
         duration={this.audioElement.duration}
-        volume={this.state.volume}
+        volume={this.audioElement.volume}
         handleSongClick={() => this.handleSongClick(this.state.currentSong)}
         handlePrevClick={() => this.handlePrevClick()}
         handleNextClick={() => this.handleNextClick()}
@@ -200,6 +200,5 @@ class Album extends Component {
     );
   }
 }
-
 
 export default Album;
