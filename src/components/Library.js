@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 import { Route, Link } from 'react-router-dom';
+import './Library.css';
 
 
 class Library extends Component {
@@ -12,16 +13,28 @@ class Library extends Component {
   render() {
     return (
       <section className="library">
-        {
-          this.state.albums.map( (album, index) =>
-            <Link to={`/album/${album.slug}`} key={index}>
-            <img src={album.albumCover} alt={album.title} />
-              <div>{album.title}</div>
-              <div>{album.artist}</div>
-              <div>{album.songs.length} songs</div>
-            </Link>
-          )
-        }
+        <section className="section">
+        <div className="container">
+          <div className="row">
+              {
+                this.state.albums.map( (album, index) =>
+                <div className="col-6 col-md-3 albums">
+                  <Link to={`/album/${album.slug}`} key={index}>
+                    <img src={album.albumCover} alt={album.title} className="img-responsive" />
+                    <div className="title">{album.title}</div>
+                    <div className="artist">{album.artist}</div>
+                    <div className="songs">{album.songs.length} songs</div>
+                  </Link>
+                  </div>
+                )
+              }
+          </div>
+        </div>
+        </section>
+        <section className="footer">
+          <p className="footer-text">Bloc Jams</p>
+          <p className="footer-text">A Bloc.io Project</p>
+        </section>
       </section>
     );
   }

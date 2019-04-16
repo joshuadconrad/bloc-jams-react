@@ -1,0 +1,216 @@
+.album {
+  padding: 30px 0 30px 0;
+}
+
+@media(min-width: 768px) {
+  .album {
+    padding: 100px 0 30px 0;
+  }
+}
+
+.album-info{
+  padding-bottom:30px;
+}
+
+.type {
+  display: none;
+}
+
+@media(min-width:768px) {
+  .type {
+    font-size: .875rem;
+    text-transform: uppercase;
+  }
+}
+
+.album-details {
+  padding-top: 0px;
+  text-align: center;
+}
+
+@media(min-width:576px) {
+  .album-details {
+    padding-top: 30px;
+    text-align: left;
+  }
+}
+
+@media(min-width:992px) {
+  .album-details {
+    padding-top: 15px;
+  }
+}
+
+@media(min-width:1200px) {
+  .album-details {
+    padding-top: 30px;
+  }
+}
+
+.album-cover {
+  max-width: 50%;
+}
+
+@media(min-width:576px) {
+  .album-cover {
+    max-width: 100%;
+  }
+}
+
+.album-title {
+  font-size: 1.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media(min-width:576px) {
+  .album-title {
+    font-size: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media(min-width:768px) {
+  .album-title {
+    font-size: 3.75rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.artist {
+  font-size: .875rem;
+  padding: 5px;
+}
+
+@media(min-width: 576px) {
+  .artist {
+    font-size: 1rem;
+    padding: inherit;
+  }
+}
+
+@media(min-width: 768px) {
+  .artist {
+    font-size: 1rem;
+    padding: inherit;
+  }
+}
+
+.by-artist {
+  font-weight: 400;
+}
+
+.release-info {
+  font-size: .75rem;
+}
+
+.player{
+  background: linear-gradient(-40deg, #af4fec 0%,  #E42D8B 70%, #e42d6b 100%);
+  padding:60px 0 130px 0;
+}
+.song-list{
+  position: relative;
+  background: rgba(255, 255, 255, .8);
+  width:90%;
+  left: 5%;
+}
+
+tr{
+  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.1);
+}
+td{
+  padding: 10px 15px;
+}
+.time{
+  float: right;
+}
+
+.index{
+  width: 5%;
+}
+
+.player-controls{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.player-bar{
+  height: auto;
+  background: #282828;
+  width:100%;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#buttons{
+  padding:15px;
+}
+
+#time-control{
+  position:relative;
+  color: #fff;
+}
+
+#volume-control{
+  position: relative;
+  margin-top: 15px;
+}
+
+.time-seek-bar{
+  width:40%;
+  display: inline-block;
+}
+.current-time{
+  display: inline-block;
+  font-size: .875rem;
+  position: relative;
+  top: -5px;
+  right: 15px;
+
+  }
+  .total-time{
+    display: inline-block;
+      font-size: .875rem;
+      top: -5px;
+      position: relative;
+      left: 15px;
+  }
+  .volume-seek-bar{
+  width:10%;
+  display: inline-block;
+}
+
+#next{
+  font-size:20px;
+  color:rgba(255, 255, 255, .7);
+  padding:0 20px;
+}
+#previous{
+  font-size:20px;
+  color:rgba(255, 255, 255, .7);
+  padding:0 20px;
+}
+#play-pause{
+    font-size:20px;
+    color:#fff;
+    padding:0 20px;
+}
+
+button{
+  background: none;
+  border:none;
+}
+
+.ion-ios-volume-low{
+color:rgba(255, 255, 255, .7);
+display: inline-block;
+}
+
+.ion-ios-volume-high{
+color:rgba(255, 255, 255, .7);
+display: inline-block;
+}

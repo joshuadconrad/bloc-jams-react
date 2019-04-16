@@ -1,0 +1,33 @@
+.library{
+  background: linear-gradient(-45deg, rgba(228, 45, 107, .4) 0%, rgba(0, 0, 0, .4) 100%);
+}
+
+.section{
+  padding: 30px 0 30px 0;
+}
+@media(min-width: 768px){
+  .section{
+    padding: 100px 0 30px 0;
+  }
+}
+
+.albums{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title{
+  color: #000;
+}
+
+.artist{
+  color: #000;
+}
+
+.songs{
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+}
